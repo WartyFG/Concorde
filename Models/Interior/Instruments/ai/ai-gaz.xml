@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>ai-gaz.ac</path>
+
+  <animation>
+    <object-name>fond</object-name>
+    <object-name>visses</object-name>
+    <object-name>face</object-name>
+    <object-name>ball</object-name>
+    <object-name>aircraft</object-name> 
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>ball</object-name>
+    <object-name>aircraft</object-name>  
+    <object-name>roll-pointer</object-name> 
+    <object-name>flag.gyro</object-name> 
+    <!--object-name>flag.gs</object-name> 
+    <object-name>flag.hdg</object-name--> 
+    <emission>
+            <red>0.0175</red>
+            <green>0.0175</green>
+            <blue>0.0175</blue>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+    </emission>
+  </animation>
+  
+   <animation>
+    <type>material</type>
+    <object-name>needle.glideslope</object-name>
+    <object-name>needle.localiser</object-name>
+    <emission>
+            <red>0.4</red>
+            <green>0.4</green>
+            <blue>0.0</blue>
+    </emission>
+  </animation> 
+     <animation>
+    <type>material</type>
+    <object-name>flag.gs</object-name> 
+    <object-name>flag.hdg</object-name>
+    <emission>
+            <red>0.6</red>
+            <green>0.2</green>
+            <blue>0.0</blue>
+    </emission>
+  </animation>
+  
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ball</object-name>
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m> -0.46 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>  
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ball</object-name>
+    <property>/orientation/pitch-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m> -0.046 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>  
+
+  <animation>
+    <type>rotate</type>
+        <object-name>roll-pointer</object-name> 
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+     <x-m> 0.019 </x-m>
+     <y-m> 0.000 </y-m>
+     <z-m> 0.000 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  
+  
+   
+  
+   <animation>
+    <type>rotate</type>
+    <object-name>flag.gyro</object-name>
+	<property>/engines/engine/n1</property>
+    <interpolation>
+      <entry><ind>  	0 </ind><dep>    0 </dep></entry>
+      <entry><ind>  28 </ind><dep>   -5 </dep></entry>
+      <entry><ind>  30 </ind><dep> -110 </dep></entry>
+    </interpolation>
+    <center>
+     <x-m> 0.000 </x-m>
+     <y-m> 0.040 </y-m>
+     <z-m> 0.000 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation> 
+ 
+    <animation>
+    <type>rotate</type>
+    <object-name>flag.gs</object-name>
+	<property>/navigation/glideSlope</property>
+    <interpolation>
+      <entry><ind>  	0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  1 </ind><dep> -60 </dep></entry>
+    </interpolation>
+    <center>
+     <x-m> 0.000 </x-m>
+     <y-m> -0.040 </y-m>
+     <z-m> 0.000 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>  
+  
+    <animation>
+    <type>rotate</type>
+    <object-name>flag.hdg</object-name>
+	<property>/navigation/localiser</property>
+    <interpolation>
+      <entry><ind>  	0 </ind><dep>  0 </dep></entry>
+      <entry><ind>  1 </ind><dep> 70 </dep></entry>
+    </interpolation>
+    <center>
+     <x-m> 0.000 </x-m>
+     <y-m> 0.000 </y-m>
+     <z-m> 0.040 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation> 
+  
+  <!--needle.glideslope-->
+      <animation>
+    <type>rotate</type>
+
+    <object-name>needle.glideslope</object-name>
+	<property>/navigation/needleGlideslope</property>
+	<factor>6</factor>
+    <center>
+      <x-m> -0.046 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+
+  </animation> 
+    <!--needle.localiser-->
+      <animation>
+    <type>rotate</type>
+
+    <object-name>needle.localiser</object-name>
+	<property>/navigation/needleLocaliser</property>
+	<factor>-5</factor>
+    <center>
+      <x-m> -0.046 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+
+  </animation> 
+  
+
+</PropertyList>
+

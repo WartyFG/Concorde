@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- see http://wiki.flightgear.org/OSG_Text -->
+
+<PropertyList>
+<text>
+    <!-- It should have a name. Can be used for other animations -->
+    <name>WP-Distance</name>
+    <offsets>
+    <x-m>-23.700</x-m>
+    <y-m>-0.470</y-m>
+    <z-m> 1.176</z-m>
+        <pitch-deg>0</pitch-deg>
+        <heading-deg>90</heading-deg>
+        <roll-deg>81</roll-deg>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">instrumentation/gps/wp/wp[1]/distance-nm</property>
+    <format type="string">%4.1f</format> <!-- the sprintf() format to display the value -->
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+	<font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.006</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.012</max-height> <!-- the maximum height of the text -->
+    <max-width>0.060</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">24</width>
+        <height type="int">24</height>
+    </font-resolution>
+ 	<alignment>center-center</alignment> <!-- alignment of the text itself -->
+</text>
+  <animation>
+    <type>material</type>
+    <object-name>WP-Distance</object-name>>
+    <emission>
+            <red>0.15</red>
+            <green>0.02</green>
+            <blue>0.012</blue>
+    </emission>
+  </animation>
+</PropertyList>
+
+

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+
+
+<PropertyList>
+	<path>vsi.ac</path>
+
+<animation>
+	<type>translate</type>
+	<object-name>arrow.white</object-name>
+	<property>autopilot/settings/vertical-speed-fpm</property>
+	<!--factor>0.000018</factor-->
+	<interpolation>
+      <entry><ind> -6000 </ind><dep> -0.051 </dep></entry>
+      <entry><ind> -4000 </ind><dep> -0.0405 </dep></entry>
+      <entry><ind> -2000 </ind><dep> -0.029 </dep></entry>
+      <entry><ind> -1000 </ind><dep> -0.0175</dep></entry>
+      <entry><ind>     0 </ind><dep>  0 </dep></entry>
+      <entry><ind>  1000 </ind><dep>  0.0175</dep></entry>
+      <entry><ind>  2000 </ind><dep>  0.029 </dep></entry>
+      <entry><ind>  4000 </ind><dep>  0.0405 </dep></entry>
+      <entry><ind>  6000 </ind><dep>  0.051 </dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+</animation>
+
+<animation>
+	<type>translate</type>
+	<object-name>arrow.yellow</object-name>
+	<property>instrumentation/vertical-speed-indicator/indicated-speed-fps</property>
+	<!--factor>0.001080</factor-->
+	<interpolation>
+      <entry><ind> -100 </ind><dep> -0.051 </dep></entry>
+      <entry><ind> -66.7 </ind><dep> -0.0405 </dep></entry>
+      <entry><ind> -33.3 </ind><dep> -0.029 </dep></entry>
+      <entry><ind> -16.7 </ind><dep> -0.0175</dep></entry>
+      <entry><ind>     0 </ind><dep>  0 </dep></entry>
+      <entry><ind>  16.7 </ind><dep>  0.0175</dep></entry>
+      <entry><ind>  33.3 </ind><dep>  0.029 </dep></entry>
+      <entry><ind>  66.7  </ind><dep>  0.0405 </dep></entry>
+      <entry><ind>  100 </ind><dep>  0.051 </dep></entry>
+    </interpolation>	
+	
+	
+	
+	
+	
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+</animation>
+
+
+	<!-- lighting -->
+
+	<animation>
+		<object-name>box</object-name>
+		<object-name>arrow.white</object-name>
+		<object-name>arrow.yellow</object-name>
+		<type>material</type>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+		</emission>
+	</animation>
+
+
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>50</max-m>
+	</animation>
+
+</PropertyList>

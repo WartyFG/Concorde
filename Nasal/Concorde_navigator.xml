@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>navigator</name>
+ <width>500</width>
+ <height>240</height>
+ <x>10</x><y>10</y>
+ <modal>false</modal>
+
+ <text>
+  <x>10</x>
+  <y>210</y>
+  <label>Concorde navigator, co-pilot, etc . . .</label>
+ </text>
+
+ <group>
+  <x>0</x>
+  <y>50</y>
+
+<text><x>-395</x><y>140</y><width>400</width><height>25</height><property>/navigation/closestTxt</property></text>
+<text><x>-395</x><y>120</y><width>400</width><height>25</height><property>/navigation/courseTxt</property></text>
+
+<text><x>-395</x><y>100</y><width>400</width><height>25</height><property>/navigation/airfieldTxt</property></text>  
+<text><x>-395</x><y> 80</y><width>400</width><height>25</height><property>/navigation/pressureTxt</property></text>  
+
+<text><x> 10</x><y>50</y><label>Auto pressure is currently:</label></text> 
+<text><x>150</x><y>50</y><width>30</width><height>25</height>
+	<property>/navigation/autoPressure</property></text>
+	
+<button>
+   <x>300</x>
+   <y>50</y>
+   <legend>change</legend>
+   <equal>true</equal>
+  <binding>
+    <command>nasal</command>
+    <script>
+    	fgcommand("dialog-close", props.Node.new({ "dialog-name": "navigator" }));
+    	if(getprop("/navigation/autoPressure")=='QNH'){
+    		setprop("/navigation/autoPressure", 'OFF');
+    		gui.popupTip("Auto pressure turned off - altimeter must be adjusted manually", 5);
+    	}
+		else{
+			setprop("/navigation/autoPressure", 'QNH');
+			gui.popupTip("Auto pressure turned ON - will change altimeter when sea level pressure (QNH) changes", 5);
+		}
+		gui.showDialog("navigator");
+    </script>
+  </binding>
+  </button>
+
+
+
+
+  
+<!--text><x> 80</x><y>100</y><label>Airfield altitude:</label></text> 
+<text><x>150</x><y>100</y><width>30</width><height>25</height>
+	<property>/navigation/closest-alt</property></text>
+  
+
+<text><x> 10</x><y>80</y><label>Height above/below airfield:</label></text> 
+<text><x>150</x><y>80</y><width>30</width><height>25</height>
+	<property>/navigation/height-difference</property></text-->  
+
+  <!--input>
+   <x>10</x>
+   <y>0</y>
+   <width>50</width>
+   <height>25</height>
+   <label>sea-level pressure (inHG)</label>
+   <property>/environment/pressure-sea-level-inhg</property>
+  </input-->
+
+ </group>
+
+ <!-- Button Box -->
+ <group>
+  <x>50</x>
+  <y>10</y>
+
+  <button>
+   <x>0</x>
+   <y>0</y>
+   <legend>OK</legend>
+   <default>true</default>
+   <equal>true</equal>
+   <binding>
+    <command>dialog-apply</command>
+   </binding>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+
+
+
+  <button>
+   <x>200</x>
+   <y>0</y>
+   <legend>Reset</legend>
+   <equal>true</equal>
+   <binding>
+    <command>dialog-update</command>
+   </binding>
+  </button>
+
+  <button>
+   <x>300</x>
+   <y>0</y>
+   <legend>Cancel</legend>
+   <equal>true</equal>
+   <key>Esc</key>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+
+ </group>
+
+</PropertyList>

@@ -1,0 +1,786 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<enable3d>true</enable3d>
+
+<ladder>
+<name>Pitch Ladder</name>
+<type>pitch</type>
+<x>-23</x>
+<y>-330</y>
+<width>48</width>
+<height>600</height>
+<roll-input>
+<property>/orientation/roll-deg</property>
+</roll-input>
+<pitch-input>
+<property>/orientation/pitch-deg</property>
+</pitch-input>
+<compression-factor>7.8</compression-factor>
+<display-span>8.0</display-span>
+<divisions>2.0</divisions>
+<screen-hole>10</screen-hole>
+<zero-bar-overlength>15</zero-bar-overlength>
+<enable-dive-bar-angle>true</enable-dive-bar-angle>
+<enable-dynamic-origin>false</enable-dynamic-origin>
+<enable-fuselage-ref-line>true</enable-fuselage-ref-line>
+<enable-target-spot>false</enable-target-spot>
+<enable-target-markers>false</enable-target-markers>
+<enable-velocity-vector>true</enable-velocity-vector>
+<enable-drift-marker>true</enable-drift-marker>
+<enable-alpha-bracket>true</enable-alpha-bracket>
+<enable-energy-marker>true</enable-energy-marker>
+<enable-climb-dive-marker>true</enable-climb-dive-marker>
+<enable-glide-slope-marker>true</enable-glide-slope-marker>
+<glide-slope>0.0</glide-slope>
+<enable-energy-worm>true</enable-energy-worm>
+<enable-waypoint-marker>true</enable-waypoint-marker>
+</ladder>
+
+<gauge><name>Throttle</name>
+	<x>-115</x><y>-100</y> <width>10</width> <height>100</height>
+		<option>vertical</option>
+		<option>left</option>
+		<option>notext</option>
+		<!--<major-divisions>0.5</major-divisions>
+		<minor-divisions>0.1</minor-divisions>-->
+		<tick-bottom>true</tick-bottom>
+		<tick-top>true</tick-top>
+		<tick-right>false</tick-right>
+		<tick-left>true</tick-left>
+		<cap-bottom>false</cap-bottom>
+		<cap-top>false</cap-top>
+		<cap-right>true</cap-right>
+		<cap-left>false</cap-left>
+		<marker-offset>0.0</marker-offset>
+		<enable-pointer>true</enable-pointer>
+		<pointer-type>fixed</pointer-type>
+		<input>
+			<property>/controls/engines/engine/throttle</property>
+			<max>1.0</max>
+			<min>0.0</min>
+		</input>
+</gauge>
+<label><!--throttle setting-->
+	<x>-120</x>
+	<y>-110</y>
+	<width>60</width>
+	<height>6</height>
+	<box>false</box><format>%1.2f</format>
+	<halign>left</halign>
+	<input>
+		<property>/controls/engines/engine/throttle</property>
+	</input>
+</label>
+
+<tape>
+<name>Gyrocompass</name>
+<x>-35</x>
+<y>20</y>
+<width>70</width>
+<height>2</height>
+<input>
+<property>orientation/heading-deg</property>
+<factor>0.1</factor>
+<max>85</max>
+<min>0</min>
+</input>
+<display-span>5</display-span>
+<option>bottom</option>
+<major-divisions>5</major-divisions>
+<minor-divisions>1</minor-divisions>
+<tick-bottom>false</tick-bottom>
+<tick-top>false</tick-top>
+<tick-right>false</tick-right>
+<tick-left>false</tick-left>
+<cap-bottom>true</cap-bottom>
+<cap-top>true</cap-top>
+<cap-right>true</cap-right>
+<cap-left>true</cap-left>
+<marker-offset>0</marker-offset>
+<enable-pointer>false</enable-pointer>
+<pointer-type>fixed</pointer-type>
+<tick-type>line</tick-type>
+<tick-length>fixed</tick-length>
+</tape>
+
+
+<label>
+<name>Gyro Heading Marker</name>
+<x>0</x>
+<y>20</y>
+<width>1</width>
+<height>1</height>
+<format>v</format>
+</label>
+
+<label>
+<name>Gyro Heading Label</name>
+<x>-10</x>
+<y>12</y>
+<width>17</width>
+<height>4</height>
+<input>
+<property>/orientation/heading-deg</property>
+</input>
+<format>%4.0f</format>
+<halign>center</halign>
+<box>false</box>
+</label>
+
+
+
+
+<label>
+<name>KIAS</name>
+<width>1</width>
+<height>1</height>
+<x>-81</x>
+<y>30</y>
+<format>%3d</format>
+<halign>left</halign>
+<input>
+<property>/velocities/airspeed-kt</property>
+</input>
+<format>IAS:%3dkts</format>
+<halign>left</halign>
+<box>false</box>
+<option>right</option>
+</label>
+
+<label>
+<name>MACH Number</name>
+<width>1</width>
+<height>1</height>
+<x>-90</x>
+<y>23</y>
+<input>
+<property>/velocities/mach</property>
+</input>
+<format>M%4.1f</format>
+<halign>left</halign>
+</label>
+
+<label>
+<name>Ground Speed</name>
+<width>1</width>
+<height>1</height>
+<x>-100</x>
+<y>16</y>
+<format>GS:%3dkts</format>
+<halign>left</halign>
+<input>
+<property>/instrumentation/gps/indicated-ground-speed-kt</property>
+</input>
+</label>
+
+
+
+
+<label>
+<name>Altitude</name>
+<x>103</x>
+<y>30</y>
+<width>1</width>
+<height>1</height>
+<input>
+<property>/position/altitude-ft</property>
+</input>
+<format>%4.0f</format>
+<halign>right</halign>
+<box>false</box>
+<option>left</option>
+</label>
+
+<label>
+<name>AGL</name>
+<x>103</x>
+<y>23</y>
+<width>1</width>
+<height>1</height>
+<input>
+<property>/position/altitude-agl-ft</property>
+</input>
+<format>AGL:%4.0f</format>
+<halign>right</halign>
+<box>false</box>
+<option>left</option>
+</label>
+
+
+
+<!-- Autopilot boxes -->
+
+<!-- Waypoint -->
+
+
+<label>
+<width>1</width><height>1</height><x>-70</x><y>-101</y>
+<format>%4.1f nm to</format><halign>left</halign>
+<input><property>/instrumentation/gps/wp/wp[1]/distance-nm</property></input>
+</label>
+
+<label>
+<width>1</width><height>1</height><x>10</x><y>-101</y>
+<halign>right</halign>
+<input><property>/instrumentation/gps/wp/wp[1]/ID</property></input>
+</label>
+
+<label>
+<width>1</width><height>1</height><x>-70</x><y>-108</y>
+<format>%4.1f mag</format><halign>left</halign>
+<input><property>/instrumentation/gps/wp/wp[1]/bearing-mag-deg</property></input>
+</label>
+
+<label>
+<width>1</width><height>1</height><x>0</x><y>-115</y>
+<halign>center</halign>
+<input><property>/instrumentation/gps/wp/wp[1]/TTW</property></input>
+</label>
+
+
+
+<!-- Direction boxes -->
+<label><!--wings level -->
+<x>-20</x>
+<!--<y>-125</y>-->
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<box>false</box>
+<format>ROLL</format>
+<halign>left</halign>
+<condition>
+<equals>
+<property>/autopilot/locks/heading</property>
+<value>wing-leveler</value>
+</equals>
+</condition>
+</label>
+
+<label><!--heading hold BUG-->
+<x>-30</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<box>true</box><format>HDG %03d</format>
+<halign>left</halign>
+<input>
+<property>/autopilot/settings/heading-bug-deg</property>
+</input>
+<condition>
+<equals>
+<property>/autopilot/locks/heading</property>
+<value>dg-heading-hold</value>
+</equals>
+</condition>
+</label>
+
+<label><!--heading hold TRUE-->
+<x>-30</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<box>false</box>
+<format>HDG %03d T</format>
+<halign>left</halign>
+<input>
+<property>/autopilot/settings/true-heading-deg</property>
+</input>
+<condition>
+<equals>
+<property>/autopilot/locks/heading</property>
+<value>true-heading-hold</value>
+</equals>
+</condition>
+</label>
+
+<!--pitch/altitude boxes-->
+<label><!--altitude hold-->
+<x>44</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<box>true</box>
+<format>ALT %04d</format>
+<halign>right</halign>
+<input>
+<property>/autopilot/settings/target-altitude-ft</property>
+</input>
+<condition>
+<equals>
+<property>/autopilot/locks/altitude</property>
+<value>altitude-hold</value>
+</equals>
+</condition>
+</label>
+
+<label>
+<x>44</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<box>false</box>
+<format>PTCH</format>
+<halign>left</halign>
+<condition>
+<equals>
+<property>/autopilot/locks/altitude</property>
+<value>pitch-hold</value>
+</equals>
+</condition>
+</label>
+
+<label>
+<x>44</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<box>true</box>
+<format>V/S %d</format>
+<halign>left</halign>
+<input>
+<property>/autopilot/settings/vertical-speed-fpm</property>
+</input>
+<condition>
+<equals>
+<property>/autopilot/locks/altitude</property>
+<value>vertical-speed-hold</value>
+</equals>
+</condition>
+</label>
+
+<label>
+<x>44</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<box>false</box>
+<format>AGL %04d</format>
+<halign>left</halign>
+<input>
+<property>/autopilot/settings/target-agl-ft</property>
+</input>
+<condition>
+<equals>
+<property>/autopilot/locks/altitude</property>
+<value>agl-hold</value>
+</equals>
+</condition>
+</label>
+
+
+
+<!--speed hold-->
+<label>
+<x>-100</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<format>IAS %3dkt</format>
+<halign>left</halign>
+<box>true</box>
+<input>
+<property>/autopilot/settings/target-speed-kt</property>
+</input>
+<condition>
+<equals>
+<property>/autopilot/locks/speed</property>
+<value>speed-with-throttle</value>
+</equals>
+</condition>
+</label>
+
+<label>
+<x>-100</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<format>IAS %3dkt</format>
+<halign>left</halign>
+<box>false</box>
+<format>MACH %1.2f</format>
+<halign>left</halign>
+<input>
+<property>/autopilot/settings/target-speed-mach</property>
+</input>
+<condition>
+<equals>
+<property>/autopilot/locks/speed</property>
+<value>mach-with-throttle</value>
+</equals>
+</condition>
+</label>
+
+<label>
+<x>-100</x>
+<y>35</y>
+<width>60</width>
+<height>6</height>
+<format>IAS %3dkt</format>
+<halign>left</halign>
+<box>false</box>
+<format>PITCH %3dkt</format>
+<halign>left</halign>
+<input>
+<property>/autopilot/settings/target-speed-mach</property>
+</input>
+<condition>
+<equals>
+<property>/autopilot/locks/speed</property>
+<value>speed-with-pitch-trim</value>
+</equals>
+</condition>
+</label>
+
+<!-- A kind of VSI  -->
+<dial>
+   <name>altitude</name>
+   <x>90</x>
+   <y>5</y> 
+   <width>10</width>
+   <height>10</height>
+      <input>
+          <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+					<factor>1.0</factor>
+          <damp>0.3</damp>
+      </input>
+   <format>%n</format>
+      <box>false</box>
+			<halign>left</halign>
+   <options>4</options>
+   <option>notext</option>
+   <justification>0</justification>
+   <blinking>0</blinking>
+   <working>true</working>
+   <latitude>true</latitude>
+   <longitude>true</longitude>
+  <tick-type>line</tick-type>
+  <tick-bottom>true</tick-bottom>
+  <tick-left>true</tick-left>
+  <cap-bottom>true</cap-bottom>
+  <display-span>0</display-span>
+  <radius>8</radius>
+  <divisions>10</divisions>
+</dial>
+
+
+
+
+
+<!--controls/flight/elevator-->
+<label>
+	<x>115</x>
+	<y>-100</y>
+	<width>60</width>
+	<height>6</height>
+	<box>false</box><format>EL: %1.2f</format>
+	<halign>left</halign>
+	<input>
+		<property>/controls/flight/elevator</property>
+	</input>
+</label>
+
+
+
+<!-- ===================================================== parking brake -->
+<!--brakes off-->
+<label>
+
+	<x>-120</x> <y>-140</y> <width>60</width> <height>6</height>
+	<box>false</box> <halign>right</halign>
+	<format>brakes off</format>
+	<condition>
+		<equals>
+			<property>/controls/gear/brake-parking</property><value>0</value>
+		</equals>
+	</condition>
+</label>
+<!--BRAKES ON-->
+<label>
+	<x>-110</x> <y>-140</y> <width>60</width> <height>6</height>
+	<box>false</box> <halign>right</halign>
+	<format>*BRAKES ON*</format>
+	<condition>
+		<equals>
+			<property>/controls/gear/brake-parking</property><value>1</value>
+		</equals>
+	</condition>
+</label>
+
+<!--brake-parking-lever-->
+<label>
+
+	<x>-120</x> <y>-148</y> <width>60</width> <height>6</height>
+	<box>false</box> <halign>right</halign>
+	<format>brake-parking-lever off</format>
+	<condition>
+		<equals>
+			<property>/controls/gear/brake-parking-lever</property><value>0</value>
+		</equals>
+	</condition>
+</label>
+
+<label>
+	<x>-150</x> <y>-148</y> <width>100</width> <height>6</height>
+	<box>true</box> <halign>right</halign>
+	<format>*BRAKE-PARKING-LEVER ON*</format>
+	<condition>
+		<equals>
+			<property>/controls/gear/brake-parking-lever</property><value>1</value>
+		</equals>
+	</condition>
+</label>
+
+<!-- brake-pos-norm -->
+<label>
+
+	<x>-120</x> <y>-156</y> <width>60</width> <height>6</height>
+	<box>false</box> <halign>right</halign>
+	<format>brake-pos-norm off</format>
+	<condition>
+		<equals>
+			<property>/controls/gear/brake-pos-norm</property><value>0</value>
+		</equals>
+	</condition>
+</label>
+
+<label>
+	<x>-150</x> <y>-156</y> <width>100</width> <height>6</height>
+	<box>true</box> <halign>right</halign>
+	<format>*BRAKE-POS-NORM ON*</format>
+	<condition>
+		<equals>
+			<property>/controls/gear/brake-pos-norm</property><value>1</value>
+		</equals>
+	</condition>
+</label>
+
+
+<!-- ====================================================== landing gear -->
+
+<label>
+	<x>-70</x> <y>-140</y> <width>60</width> <height>6</height>
+	<box>false</box> <halign>right</halign>
+	<format>gear up</format>
+	<condition>
+		<equals>
+			<property>/controls/gear/gear-down</property><value>false</value>
+		</equals>
+	</condition>
+</label>
+<label>
+	<x>-50</x> <y>-140</y> <width>60</width> <height>6</height>
+	<box>false</box> <halign>right</halign>
+	<format>*GEAR DOWN*</format>
+	<condition>
+		<equals>
+			<property>/controls/gear/gear-down</property><value>true</value>
+		</equals>
+	</condition>
+</label>
+<!--======================================================== Nose setting-->
+<label>
+	<x>0</x><y>-140</y><width>40</width><height>6</height>
+	<box>false</box><halign>right</halign>
+	<format>NOSE</format>
+</label>
+<label>
+	<x>39</x><y>-140</y><width>60</width><height>6</height>
+	<box>false</box><halign>left</halign>
+	<input><property>/controls/flight/flaps</property></input>
+</label>
+
+<!--======================================================== WOWs-->
+<label>
+	<x>-40</x><y>-160</y><width>40</width><height>6</height>
+	<box>false</box><halign>right</halign>
+	<format>W0</format>
+</label>
+<label>
+	<x>5</x><y>-160</y><width>60</width><height>6</height>
+	<box>false</box><halign>left</halign>
+	<input><property>/gear/gear[0]/wow</property></input>
+</label>
+
+<label>
+	<x>-70</x><y>-180</y><width>40</width><height>6</height>
+	<box>false</box><halign>right</halign>
+	<format>W1</format>
+</label>
+<label>
+	<x>-25</x><y>-180</y><width>60</width><height>6</height>
+	<box>false</box><halign>left</halign>
+	<input><property>/gear/gear[1]/wow</property></input>
+</label>
+
+<label>
+	<x>10</x><y>-180</y><width>40</width><height>6</height>
+	<box>false</box><halign>right</halign>
+	<format>W3</format>
+</label>
+<label>
+	<x>50</x><y>-180</y><width>60</width><height>6</height>
+	<box>false</box><halign>left</halign>
+	<input><property>/gear/gear[3]/wow</property></input>
+</label>
+
+
+<!--======================================================== ILS-->
+<label>
+	<x>-40</x><y>-200</y><width>40</width><height>6</height>
+	<box>false</box><halign>right</halign>
+	<format>LOC</format>
+</label>
+<label>
+	<x>5</x><y>-200</y><width>60</width><height>6</height>
+	<box>false</box><halign>left</halign>
+	<input><property>/navigation/localiser</property></input>
+</label>
+
+
+<!--======================================================== flight Mode-->
+<label>
+	<x>-150</x><y>-200</y><width>40</width><height>6</height>
+	<box>false</box><halign>right</halign>
+	<format>Flight Mode</format>
+</label>
+<label>
+	<x>-110</x><y>-200</y><width>60</width><height>6</height>
+	<box>false</box><halign>left</halign>
+	<input><property>/afcs/flight-mode</property></input>
+</label>
+
+
+<!-- ====================================================== canopy -->
+<label><!--CANOPY OPEN-->
+	<x>-50</x> <y>40</y> <width>100</width> <height>6</height>
+	<box>true</box> <halign>center</halign>
+	<format>!! CANOPY OPEN !!</format>
+	<condition>
+		<greater-than>
+			<property>/canopy/position-norm</property><value>false</value>
+		</greater-than>
+	</condition>
+</label>
+
+<!-- ====================================================== approach -->
+<label>
+	<x>-50</x> <y>100</y> <width>100</width> <height>6</height>
+	<box>true</box> <halign>center</halign>
+	<format>! approach config !</format>
+	<condition>
+		<equals>
+			<property>/sim/landing/status</property><value>approach</value>
+		</equals>
+	</condition>		
+</label>
+<!-- ==================================================== landing -->
+<label>
+	<x>-50</x> <y>100</y> <width>100</width> <height>6</height>
+	<box>true</box> <halign>center</halign>
+	<format>!! LANDING CONFIG !!</format>
+	<condition>
+		<equals>
+			<property>/sim/landing/status</property><value>landing</value>
+		</equals>
+	</condition>	
+</label>
+
+<!-- ======================================================================= reversers -->
+<label>
+	<x>-50</x> <y>0</y> <width>100</width> <height>6</height>
+	<box>true</box> <halign>center</halign>
+	<format>!! REVERSE THRUST !!</format>
+	<condition>
+		<equals>
+			<property>/controls/engines/engine[0]/reverser</property><value>1</value>
+		</equals>
+	</condition>
+</label>
+
+<label>
+	<x>-50</x> <y>0</y> <width>100</width> <height>6</height>
+	<box>true</box> <halign>center</halign>
+	<format>!! SPOILERS !!</format>
+	<condition>
+		<equals>
+			<property>/controls/flight/spoilers</property><value>0.25</value>
+		</equals>
+	</condition>
+</label>
+
+
+<label>
+	<x>-50</x> <y>-20</y> <width>100</width> <height>6</height>
+	<box>true</box> <halign>center</halign>
+	<format>!!! SPEED BRAKE !!!</format>
+	<condition>
+		<equals>
+			<property>/controls/flight/speedbrake</property><value>1</value>
+		</equals>
+	</condition>
+</label>
+
+
+<!-- ==================================================== keytest -->
+<label>
+	<x>-50</x> <y>72</y> <width>100</width> <height>6</height>
+	<box>false</box> <halign>center</halign>
+	<input>
+		<property>/sim/keytest</property>
+	</input>
+</label>
+<!-- ==================================================== yaw rate -->
+<label>
+	<x>-50</x> <y>-125</y> <width>100</width> <height>6</height>
+	<box>false</box> <halign>center</halign>
+	<format>%2.1f dps</format>
+	<input>
+		<property>/orientation/yaw-rate-degps</property>
+	</input>
+</label>
+
+<label>
+	<x>-250</x> <y>60</y> <width>150</width> <height>6</height>
+	<box>false</box> <halign>right</halign><format>Wind from %3.0f deg</format>
+	<input><property>/environment/wind-from-heading-deg</property></input>
+</label>
+<label>
+	<x>-100</x> <y>60</y> <width>100</width> <height>6</height>
+	<box>false</box> <halign>left</halign><format>@ %3.0f kt</format>
+	<input><property>/environment/wind-speed-kt</property></input>
+</label>
+
+	<gauge>
+		<name>Rudder</name>
+		<x>-50</x>
+		<y>-130</y>
+		<width>100</width>
+		<height>10</height>
+		<option>top</option>
+		<option>notext</option>
+		<major-divisions>50</major-divisions>
+		<minor-divisions>0</minor-divisions>
+		<tick-bottom>false</tick-bottom>
+		<tick-top>false</tick-top>
+		<tick-right>true</tick-right>
+		<tick-left>true</tick-left>
+		<cap-bottom>true</cap-bottom>
+		<cap-top>false</cap-top>
+		<cap-right>false</cap-right>
+		<cap-left>false</cap-left>
+		<marker-offset>0.0</marker-offset>
+		<enable-pointer>true</enable-pointer>
+		<pointer-type>fixed</pointer-type>
+		<input>
+			<property>/controls/flight/rudder</property>
+			<max>1.0</max>
+			<min>-1.0</min>
+		</input>
+	</gauge>
+
+
+
+</PropertyList>

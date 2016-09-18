@@ -1,0 +1,95 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>Panel_top.ac</path> 
+ 
+   <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>/autopilot/locks/speed</property>
+		<value>speed-with-throttle</value>
+		</equals>
+	</condition>
+    <object-name>IAS_HOLD</object-name>
+    <object-name>AT1</object-name>
+    <object-name>AT2</object-name>
+    <emission>
+              <red>0.6</red>
+            <green>0.6</green>
+             <blue>0.6</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>/autopilot/locks/speed</property>
+		<value>speed-with-throttle</value>
+		</equals>
+	</condition>
+    <object-name>IAS_HOLD</object-name>
+    <object-name>AT1</object-name>
+    <object-name>AT2</object-name>
+    <emission>
+              <red>0.6</red>
+            <green>0.6</green>
+             <blue>0.6</blue>
+    </emission>
+  </animation>
+    
+  
+  
+
+   <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>/autopilot/locks/heading</property>
+		<value>dg-heading-hold</value>
+		</equals>
+	</condition>
+    <object-name>HDG_HOLD</object-name>
+    <emission>
+              <red>0.6</red>
+            <green>0.6</green>
+             <blue>0.6</blue>
+    </emission>
+  </animation>
+  
+  
+  
+   <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>/autopilot/locks/altitude</property>
+		<value>altitude-hold</value>
+		</equals>
+	</condition>
+    <object-name>ALT_HOLD</object-name>
+    <emission>
+              <red>0.6</red>
+            <green>0.6</green>
+             <blue>0.6</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>/autopilot/locks/altitude</property>
+		<value>vertical-speed-hold</value>
+		</equals>
+	</condition>
+    <object-name>VERT_SPEED</object-name>
+    <emission>
+              <red>0.6</red>
+            <green>0.6</green>
+             <blue>0.6</blue>
+    </emission>
+  </animation>
+  
+  
+
+</PropertyList>

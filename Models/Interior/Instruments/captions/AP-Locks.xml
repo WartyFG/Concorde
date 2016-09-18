@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<!-- see http://wiki.flightgear.org/OSG_Text -->
+
+<PropertyList>
+<text>
+    <name>AP-Speed</name>
+    <offsets>
+    <x-m>-23.797</x-m><!--x-m>-23.700</x-m-->
+    <y-m>-0.160</y-m><!--y-m>-0.500</y-m-->
+    <z-m> 1.359</z-m><!--z-m> 1.315</z-m-->
+        <pitch-deg>0</pitch-deg>
+        <heading-deg>90</heading-deg>
+        <roll-deg>71</roll-deg>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">autopilot/settings/target-speed-kt</property>
+    <format type="string">%4.0f</format> <!-- the sprintf() format to display the value -->
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+	<font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.01</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.012</max-height> <!-- the maximum height of the text -->
+    <max-width>0.060</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">24</width>
+        <height type="int">24</height>
+    </font-resolution>
+ 	<alignment>center-center</alignment> <!-- alignment of the text itself -->
+</text>
+
+<text>
+    <name>AP-Heading</name>
+    <offsets>
+    <x-m>-23.780</x-m>
+    <y-m>-0.085</y-m>
+    <z-m> 1.331</z-m>
+        <pitch-deg>0</pitch-deg>
+        <heading-deg>90</heading-deg>
+        <roll-deg>71</roll-deg>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">autopilot/settings/heading-bug-deg</property>
+    <format type="string">%4.0f</format> <!-- the sprintf() format to display the value -->
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+	<font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.01</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.012</max-height> <!-- the maximum height of the text -->
+    <max-width>0.060</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">24</width>
+        <height type="int">24</height>
+    </font-resolution>
+ 	<alignment>center-center</alignment> <!-- alignment of the text itself -->
+</text>
+
+
+<text>
+    <name>AP-VSI</name>
+    <offsets>
+    <x-m>-23.700</x-m>
+    <y-m>-0.440</y-m>
+    <z-m> 1.330</z-m>
+        <pitch-deg>0</pitch-deg>
+        <heading-deg>90</heading-deg>
+        <roll-deg>81</roll-deg>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">autopilot/settings/vertical-speed-fpm</property>
+    <format type="string">%4.0f</format> <!-- the sprintf() format to display the value -->
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+	<font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.01</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.012</max-height> <!-- the maximum height of the text -->
+    <max-width>0.060</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">24</width>
+        <height type="int">24</height>
+    </font-resolution>
+ 	<alignment>center-center</alignment> <!-- alignment of the text itself -->
+</text>
+<text>
+    <name>AP-Alt</name>
+    <offsets>
+    <x-m>-23.700</x-m>
+    <y-m>-0.440</y-m>
+    <z-m> 1.315</z-m>
+        <pitch-deg>0</pitch-deg>
+        <heading-deg>90</heading-deg>
+        <roll-deg>81</roll-deg>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">autopilot/settings/target-altitude-ft</property>
+    <format type="string">%4.0f</format> <!-- the sprintf() format to display the value -->
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    
+
+
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+    
+	<font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.01</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.012</max-height> <!-- the maximum height of the text -->
+    <max-width>0.060</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">24</width>
+        <height type="int">24</height>
+    </font-resolution>
+ 	<alignment>center-center</alignment> <!-- alignment of the text itself -->
+ 	
+ 	
+ 	
+</text>
+
+
+  <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>autopilot/locks/altitude</property>
+		<value>altitude-hold</value>
+		</equals>
+	</condition>
+    <object-name>AP-Alt</object-name>
+
+    <emission>
+            <red>0.2</red>
+            <green>0.2</green>
+            <blue>0.2</blue>
+    </emission>
+  </animation>
+   <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>autopilot/locks/altitude</property>
+		<value>vertical-speed-hold</value>
+		</equals>
+	</condition>
+    <object-name>AP-VSI</object-name>
+
+    <emission>
+            <red>0.2</red>
+            <green>0.2</green>
+            <blue>0.2</blue>
+    </emission>
+  </animation> 
+  
+   <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>/autopilot/locks/speed</property>
+		<value>speed-with-throttle</value>
+		</equals>
+	</condition>
+    <object-name>AP-Speed</object-name>
+
+    <emission>
+            <red>0.2</red>
+            <green>0.2</green>
+            <blue>0.2</blue>
+    </emission>
+  </animation> 
+
+   <animation>
+    <type>material</type>
+    <condition>
+		<equals>
+		<property>/autopilot/locks/heading</property>
+		<value>dg-heading-hold</value>
+		</equals>
+	</condition>
+    <object-name>AP-Heading</object-name>
+
+    <emission>
+            <red>0.2</red>
+            <green>0.2</green>
+            <blue>0.2</blue>
+    </emission>
+  </animation>
+    
+
+  <animation>
+    <type>material</type>
+    <object-name>AP-VSI</object-name>
+    <object-name>AP-Alt</object-name>
+    <object-name>AP-Speed</object-name>
+    <object-name>AP-Heading</object-name>
+
+
+    <emission>
+            <red>0.1</red>
+            <green>0.1</green>
+            <blue>0.1</blue>
+    </emission>
+    <ambient>
+            <red>0.1</red>
+            <green>0.1</green>
+            <blue>0.1</blue>
+    </ambient>
+  </animation>
+  
+  
+</PropertyList>
+
+

@@ -1,0 +1,860 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+   <!--key n="1">
+    <name>Ctrl-A</name>
+    <desc>Toggle autopilot altitude lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptogglealtitudeexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key-->
+    <key n="1">
+  <name>Ctrl-A</name>
+  <desc>Toggle autopilot altitude lock</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+     var node = props.globals.getNode("/autopilot/locks/altitude", 1);
+     if ( node.getValue() != '' ) {
+       node.setValue( "" );
+     } else {
+       	setprop("/autopilot/settings/target-altitude-ft", getprop("/position/altitude-ft"));		
+		setprop("/autopilot/locks/altitude", "vertical-speed-hold");
+		setprop("/autopilot/settings/vertical-speed-fpm", 0);
+     }
+   </script>
+  </binding>
+ </key>
+
+ <key n="32"> <!-- ================================================  reversers = SPACE -->
+    <name>SPACE</name>
+   <!--key n="2">
+    <name>Ctrl-B</name>
+    <desc>reverse thrust</desc-->
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.enginesystem.reverseexport();</script>
+    </binding>
+   </key>
+
+<!-- Autopilot is easily disconnected from a thumb switch on the yoke. -->
+
+   <key n="4">
+    <name>CTRL-D</name>
+    <desc>Disconnect autopilot</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.apdiscexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="5">
+    <name>Ctrl-E</name>
+    <desc>Toggle engineer view</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("engineer");</script>
+    </binding>
+   </key>
+
+   <key n="6">
+    <name>Ctrl-F</name>
+    <desc>Reheat</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.engineercrew.reheatexport();</script>
+    </binding>
+   </key>
+
+   <key n="7">
+    <name>Ctrl-G</name>
+    <desc>Toggle autopilot glide slope lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptoggleglideexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <!--key n="8">
+    <name>Ctrl-H</name>
+    <desc>Toggle autopilot heading lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptoggleheadingexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key-->
+    <key n="8">
+  <name>Ctrl-H</name>
+  <desc>Toggle autopilot heading lock</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+     var node = props.globals.getNode("/autopilot/locks/heading", 1);
+     if ( node.getValue() == "dg-heading-hold" ) {
+       node.setValue( "" );
+     } else {
+       node.setValue( "dg-heading-hold" );
+     }
+   </script>
+  </binding>
+ </key>
+   
+
+   <key n="11">
+    <name>Ctrl-K</name>
+    <desc>Toggle observer view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("observer");</script>
+    </binding>
+   </key>
+
+   <key n="12">
+    <name>Ctrl-L</name>
+    <desc>Toggle observer 2 view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("observer2");</script>
+    </binding>
+   </key>
+
+   <key n="14">
+    <name>Ctrl-N</name>
+    <desc>Toggle autopilot nav1 lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptogglenav1export();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="15">
+    <name>Ctrl-O</name>
+    <desc>Toggle overhead view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("overhead");</script>
+    </binding>
+   </key>
+
+   <key n="16">
+    <name>Ctrl-P</name>
+    <desc>Toggle pitch hold.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptogglepitchexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="17">
+    <name>Ctrl-Q</name>
+    <desc>Toggle virtual crew.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.copilotcrew.toggleexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.copilothuman.wakeupexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.engineercrew.toggleexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.engineerhuman.wakeupexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.crewscreen.toggleexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.voicecrew.toggleexport();</script>
+    </binding>
+    <mod-shift>
+     <desc>Abort checklist.</desc>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.voicecrew.abortexport();</script>
+     </binding>
+    </mod-shift>
+   </key>
+
+   <!--key n="19">
+    <name>Ctrl-S</name>
+    <desc>Toggle auto-throttle lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autothrottlesystem.attogglespeedexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key-->
+    <key n="19">
+  <name>Ctrl-S</name>
+  <desc>Toggle auto-throttle lock</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+     var node = props.globals.getNode("/autopilot/locks/speed", 1);
+     if ( node.getValue() == "speed-with-throttle" ) {
+       node.setValue( "" );
+     } else {
+       node.setValue( "speed-with-throttle" );
+     }
+   </script>
+  </binding>
+ </key>
+
+   <key n="20">
+    <name>Ctrl-T</name>
+    <desc>Toggle altitude hold.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptogglealtitudeholdexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <!--key n="22">
+    <name>Ctrl-V</name>
+    <desc>Select initial view (view 0).</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("captain");</script>
+    </binding>
+    <mod-shift>
+     <desc>Restore view pitch</desc>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.seatsystem.restorepitchexport();</script>
+     </binding>
+    </mod-shift>
+   </key-->
+<key n="22">
+  <name>Ctrl-V</name>
+  <desc>Select initial view (view 0)</desc>
+  <binding>
+   <command>property-assign</command>
+   <property>/sim/current-view/view-number</property>
+   <value>0</value>
+  </binding>
+ </key>
+
+   <key n="23">
+    <name>Ctrl-W</name>
+    <desc>Toggle steward view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("steward");</script>
+    </binding>
+   </key>
+
+   <key n="24">
+    <name>Ctrl-X</name>
+    <mod-shift>
+     <desc>Reset floating view.</desc>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.seatsystem.restoreexport();</script>
+     </binding>
+    </mod-shift>
+   </key>
+
+   <key n="25">
+    <name>Ctrl-Y</name>
+    <desc>Toggle copilot view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("copilot");</script>
+    </binding>
+   </key>
+
+ <key n="44">
+  <name>,</name>
+  <desc>Move rudder left</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+   <command>property-adjust</command>
+   <property>/controls/flight/rudder</property>
+   <step type="double">-0.05</step>
+  </binding>
+ </key>
+  <key n="46">
+  <name>.</name>
+  <desc>Move rudder right</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+   <command>property-adjust</command>
+   <property>/controls/flight/rudder</property>
+   <step type="double">0.05</step>
+  </binding>
+ </key>
+ 
+ 
+    
+ <key n="42"> <!-- ============== Cut engines and disable autopilot (for threshold) = * -->
+    <name>star</name><!--for coming to a full stop-->
+    <desc>Cut power and AP</desc>
+    <binding>
+        <command>nasal</command>
+        <script>
+            setprop("/autopilot/settings/target-speed-kt", 0);    
+            setprop("/autopilot/locks/altitude", "");
+            setprop("/autopilot/locks/heading", "");
+            setprop("/autopilot/locks/speed", "");
+            setprop("/controls/engines/engine[0]/throttle", 0.0);
+            setprop("/controls/engines/engine[1]/throttle", 0.0);
+            setprop("/controls/engines/engine[2]/throttle", 0.0);
+            setprop("/controls/engines/engine[3]/throttle", 0.0);
+            setprop("/afcs/flight-mode", "STOPPING");
+            setprop("/controls/gear/brake-parking", 1);
+            #setprop("/controls/flight/speedbrake", 1);
+        </script>        
+    </binding>    
+</key>  
+   
+   <key n="43"><!-- ========================================= set AP to current values = +-->
+  <name>+</name><!-- repeat last message on default keyboard -->
+  <desc>Set  AP to current values</desc>
+  <binding>
+  		<condition><!-- NOT Weight On Wheels -->
+			<not><property>/gear/gear/wow</property></not>
+		</condition>
+    <command>nasal</command>
+    <script>
+    	setprop("/autopilot/settings/target-speed-kt", getprop("/velocities/airspeed-kt"));
+		setprop("/autopilot/locks/speed", "speed-with-throttle");
+				
+    	setprop("/autopilot/settings/heading-bug-deg",  getprop("/orientation/heading-magnetic-deg"));
+		setprop("/autopilot/settings/true-heading-deg", getprop("/orientation/heading-deg"));    			
+		setprop("/autopilot/locks/heading", "dg-heading-hold");
+				
+		setprop("/autopilot/settings/target-altitude-ft", getprop("/position/altitude-ft"));		
+		setprop("/autopilot/locks/altitude", "vertical-speed-hold");
+		setprop("/autopilot/settings/vertical-speed-fpm", 0);		
+		setprop("/afcs/flight-mode", "");  
+  
+    </script>
+  </binding>
+ </key>
+ 
+ <!-- ================================================== Set up for approach to runway = / 
+Approach speed varies so really needs to be set up in individual aircraft                                                             -->
+<key n="47"><!-- Open property browser on default keyboard -->
+  <name>/</name>
+  <desc>Landing configuration</desc>
+  	<binding>
+		<condition>
+			<not>
+				<property>/gear/gear/wow</property>
+			</not>
+		</condition>
+		<command>nasal</command>
+		<script>			
+			setprop("/autopilot/settings/target-speed-kt", 160);
+			setprop("/autopilot/locks/speed", "speed-with-throttle");
+			setprop("/autopilot/locks/altitude", "vertical-speed-hold");
+			setprop("/autopilot/settings/vertical-speed-fpm", -500);
+			
+			setprop("/autopilot/settings/heading-bug-deg",  getprop("/orientation/heading-magnetic-deg"));
+			setprop("/autopilot/settings/true-heading-deg", getprop("/orientation/heading-deg"));    			
+			setprop("/autopilot/locks/heading", "dg-heading-hold");
+
+			setprop("/controls/nose-visor/pos-norm", 1);
+			setprop("/controls/gear/gear-down", 1);
+			setprop("/controls/gear/brake-parking", 1);
+			setprop("/afcs/flight-mode", "approach");
+		</script>		
+	</binding>
+</key>
+<!-- ================================================================================= -->
+<!-- key n="50" = >2< = Elevator up or increase autopilot altitude  -->
+<key n="50"><!-- ============================================ Decrease AP altitude = 2 -->
+  <name>2</name><!-- Decrease elevator trim on default keyboard -->
+  <desc>Decrease AP altitude</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+        if (getprop("/autopilot/locks/altitude") == "altitude-hold"){
+            setprop("sim/keytest", "alt -100");
+            setprop("/autopilot/settings/target-altitude-ft", 
+              getprop("autopilot/settings/target-altitude-ft") -150);
+        }
+        if (getprop("/autopilot/locks/altitude") == "vertical-speed-hold"){
+            setprop("sim/keytest", "vsi -100");
+            setprop("/autopilot/settings/vertical-speed-fpm", 
+              getprop("autopilot/settings/vertical-speed-fpm") -100);
+        }
+        </script>        
+    </binding>
+</key>
+<key n="51">
+  <name>3</name>
+  <desc>Decrease throttle or autopilot autothrottle</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+   <command>nasal</command>
+      <script>
+    if (getprop("/autopilot/locks/speed") == "speed-with-throttle"){
+        if(getprop("/autopilot/settings/target-speed-kt") >= 160){
+              setprop("/autopilot/settings/target-speed-kt", 
+             getprop("/autopilot/settings/target-speed-kt") - 10);
+        }
+        else{
+              setprop("/autopilot/settings/target-speed-kt", 
+              getprop("/autopilot/settings/target-speed-kt") - 5);    
+        }
+    }
+    else{controls.incThrottle(-0.01, -1.0);}     
+   </script>
+  </binding>
+  <mod-shift>
+   <desc>Look back right</desc>
+   <binding>
+    <command>property-assign</command>
+    <property>/sim/current-view/goal-heading-offset-deg</property>
+    <property>/sim/view/config/back-right-direction-deg</property>
+   </binding>
+  </mod-shift>
+ </key>
+
+<key n="52"><!-- ============================================= Decrease AP heading = 4 -->
+  <name>4</name><!--   Move aileron left (or adjust AP heading.)  on default keyboard -->
+  <desc>Decrease AP heading</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+        setprop("sim/keytest", "left 1 deg");
+        setprop("/autopilot/settings/heading-bug-deg", getprop("/autopilot/settings/heading-bug-deg") -1);
+        setprop("/autopilot/settings/true-heading-deg", getprop("/autopilot/settings/true-heading-deg") -1);
+        </script>        
+    </binding>
+</key>
+<!-- key n="53" = >5< = Center aileron, elevator, and rudder     !!!!!!!!!!! OK -->
+<key n="54"><!-- ============================================= Increase AP heading = 6 -->
+  <name>6</name><!--   Move aileron right (or adjust AP heading.)  on default keyboard -->
+  <desc>Increase AP heading</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+        setprop("sim/keytest", "right 1 deg");
+        setprop("/autopilot/settings/heading-bug-deg", getprop("/autopilot/settings/heading-bug-deg") +1);
+        setprop("/autopilot/settings/true-heading-deg", getprop("/autopilot/settings/true-heading-deg") +1);
+        </script>        
+    </binding>
+</key> 
+
+<!-- key n="56" = >8< = Elevator dn or decrease autopilot altitude -->
+<key n="56"><!-- =========================================== Increase AP altitude = 8 -->
+  <name>8</name><!--  Increase elevator trim  on default keyboard -->
+  <desc>Inrcease AP altitude</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+        if (getprop("/autopilot/locks/altitude") == "altitude-hold"){
+            setprop("sim/keytest", "alt +100");
+            setprop("/autopilot/settings/target-altitude-ft", 
+              getprop("autopilot/settings/target-altitude-ft") +100);
+        }
+        if (getprop("/autopilot/locks/altitude") == "vertical-speed-hold"){
+            setprop("sim/keytest", "vsi +100");
+            setprop("/autopilot/settings/vertical-speed-fpm", 
+              getprop("autopilot/settings/vertical-speed-fpm") +100);
+        }  
+        </script>        
+    </binding>
+</key>
+<key n="57"><name>9</name>        <desc>Increase throttle or autopilot autothrottle</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+  <command>nasal</command>
+   <script>
+    if (getprop("/autopilot/locks/speed") == "speed-with-throttle"){
+        if(getprop("/autopilot/settings/target-speed-kt") >= 100){
+              setprop("/autopilot/settings/target-speed-kt", 
+             getprop("/autopilot/settings/target-speed-kt") + 10);
+        }
+        else{
+              setprop("/autopilot/settings/target-speed-kt", 
+              getprop("/autopilot/settings/target-speed-kt") + 5);    
+        }
+    }
+    else{controls.incThrottle(0.01, 1.0);}     
+   </script>
+  </binding>
+  
+  <mod-shift>
+   <desc>Look front right</desc>
+   <binding>
+    <command>property-assign</command>
+    <property>/sim/current-view/goal-heading-offset-deg</property>
+    <property>/sim/view/config/front-right-direction-deg</property>
+   </binding>
+  </mod-shift>
+ </key>
+<!-- ================================================================================= -->
+ 
+   <key n="61">
+    <name>=</name>
+    <desc>Menu</desc>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+   </key>
+   
+    <key n="78">
+    <name>N</name>
+    <desc>Navigator dialog</desc>
+    <binding>
+     <command>nasal</command>
+     <script>gui.showDialog("navigator");</script>
+    </binding>
+   </key>
+   
+
+   <key n="86">
+    <name>V</name>
+    <desc>Scroll in reverse through views.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>view.stepView(-1)</script>
+    </binding>
+   </key>
+
+
+   
+   
+<key n="91">
+  <name>[</name>
+  <desc>Nose up</desc>
+  <binding>
+   <command>nasal</command>
+	<!-- QDF! --> 
+   <script>
+	if    (getprop("/controls/nose-visor/pos-norm") > 0.66){setprop("/controls/nose-visor/pos-norm", 0.66);}
+   	elsif (getprop("/controls/nose-visor/pos-norm") > 0.33){setprop("/controls/nose-visor/pos-norm", 0.33);}
+   	elsif (getprop("/controls/nose-visor/pos-norm") > 0.00){setprop("/controls/nose-visor/pos-norm", 0.00);}
+   </script>
+  </binding>
+ </key>
+ <key n="93">
+  <name>]</name>
+  <desc>Nose down</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+   	if    (0.33 > getprop("/controls/nose-visor/pos-norm") ){setprop("/controls/nose-visor/pos-norm", 0.33);}
+   	elsif (0.66 > getprop("/controls/nose-visor/pos-norm") ){setprop("/controls/nose-visor/pos-norm", 0.66);}
+   	elsif (1.00 > getprop("/controls/nose-visor/pos-norm") ){setprop("/controls/nose-visor/pos-norm", 1.00);}
+   </script>   
+  </binding>
+ </key>
+ 
+  <key n="126">
+  <name>~</name>
+  <desc>previous-waypoint</desc>
+  <binding>
+   <command>nasal</command>
+   <script>setprop("/autopilot/route-manager/input", "@previous")</script>
+  </binding>
+ </key>
+ <key n="96">
+  <name>`</name>
+  <desc>next-waypoint</desc>
+  <binding>
+   <command>nasal</command>
+   <script>setprop("/autopilot/route-manager/input", "@next")</script>
+  </binding>
+ </key>
+
+ 
+  <!--key n="110">
+  <name>n</name>
+  <desc>Nose visor</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+     setprop("/controls/nose-visor/pos-norm", 0.33);
+   </script>
+  </binding>
+ </key-->
+ 
+   <!--key n="98">
+    <name>b</name>
+    <desc>Toggle emergency brake on or off</desc>
+    <mod-alt>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.hydraulicsystem.brakesemergencyexport();</script>
+     </binding>
+    </mod-alt>
+   </key-->
+ <key n="98">
+  <name>b</name>
+  <desc>Apply all brakes</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+     setprop("/controls/gear/brake-parking", 1);
+   </script>
+  </binding>
+  <mod-up>
+   <binding>
+    <command>nasal</command>
+       <script>
+     setprop("/controls/gear/brake-parking", 0);
+     setprop("/controls/gear/brake-emergency", 0);
+   </script>
+   </binding>
+  </mod-up>
+ </key>
+ 
+  <key n="66">
+  <name>B</name>
+  <desc>Toggle parking brake on or off</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+   if(getprop("/controls/gear/brake-parking") == 1){
+   	setprop("/controls/gear/brake-parking", 0);
+   	setprop("/controls/gear/brake-emergency", 0);
+   }
+   else{setprop("/controls/gear/brake-parking", 1);}
+   </script>
+  </binding>
+ </key>
+ 
+ 
+ 
+ 
+   <key n="102">
+    <name>f</name>
+    <desc>full cockpit</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.fullexport();</script>
+    </binding>
+   </key>
+
+   <!--key n="103">
+    <name>g</name>
+    <desc>Gear standby</desc>
+    <mod-alt>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.gearsystem.standbyexport();</script>
+     </binding>
+    </mod-alt>
+   </key-->
+   
+   <key n="103">
+  <name>g</name>
+  <desc>Gear Toggle</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+      if(getprop("/controls/gear/gear-down") == 1){
+   	setprop("/controls/gear/gear-down", 0);
+   }
+   else{setprop("/controls/gear/gear-down", 1);}
+   </script>
+  </binding>
+
+ </key>
+
+
+
+   <key n="113">
+    <name>q</name>
+    <desc>quit speed-up.</desc>
+    <binding>
+     <command>property-assign</command>
+     <property>/sim/speed-up</property>
+     <value>1</value>
+    </binding>
+   </key>
+
+   <key n="118">
+    <name>v</name>
+    <desc>Cycle view</desc>
+    <binding>
+     <command>nasal</command>
+     <!--script>globals.Concorde.seatsystem.scrollexport();</script-->
+     <script>view.stepView(1)</script>
+    </binding>
+   </key>
+   
+
+   <key n="121">
+    <name>y</name>
+    <desc>Toggle yoke</desc>
+    <binding>
+     <command>property-toggle</command>
+     <property>/controls/seat/yoke</property>
+    </binding>
+   </key>
+
+   <key n="268">
+    <name>F12</name>
+    <desc>Radio dialog.</desc>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-radios</dialog-name>
+    </binding>
+    <mod-shift>
+    <desc>Toggle crew text.</desc>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.voicecrew.crewtextexport();</script>
+     </binding>
+    </mod-shift>
+   </key>
+
+   <key n="357">
+    <name>Up</name>
+    <desc>Increase autopilot pitch (slow) or move floating view front (fast)</desc>
+    <mod-ctrl>
+     <binding>
+      <command>nasal</command>
+      <script>
+       if( !globals.Concorde.seatsystem.movelengthexport(-0.1) ) {
+           if( !globals.Concorde.autopilotsystem.datumapexport(0.1) ) {
+               # default
+           }
+       }
+      </script>
+     </binding>
+    </mod-ctrl>
+   </key>
+
+   <key n="359">
+    <name>Down</name>
+    <desc>Decrease autopilot pitch (slow) or move floating view aft (fast)</desc>
+    <repeatable type="bool">true</repeatable>
+    <mod-ctrl>
+     <binding>
+      <command>nasal</command>
+      <script>
+       if( !globals.Concorde.seatsystem.movelengthexport(0.1) ) {
+           if( !globals.Concorde.autopilotsystem.datumapexport(-0.1) ) {
+               # default
+           }
+       }
+      </script>
+     </binding>
+    </mod-ctrl>
+   </key>
+<!-- ======================================================================== Pre-sets -->  
+    <key n="127"><!-- this is a bit of a cheat key -->
+        <name>Delete</name>
+        <desc>Cut power and AP</desc>
+        <binding><command>nasal</command>
+            <script>
+            setprop("/autopilot/settings/target-speed-kt", 0);    
+            setprop("/autopilot/locks/altitude", "");
+            setprop("/autopilot/locks/heading", "");
+            setprop("/autopilot/locks/speed", "");
+            setprop("/controls/engines/engine/throttle", 0.0);
+            setprop("/controls/engines/engine[1]/throttle", 0.0);
+            setprop("/controls/gear/brake-parking", 1);
+            setprop("/controls/engines/engine[0]/reverser", 1);
+            
+            setprop("/afcs/flight-mode", "STOPPING (Del key)");
+        </script>
+        </binding>
+        </key>
+<key n="360"><name>PageUp</name>                                    <desc>Climb out</desc>
+   <binding><command>nasal</command>
+        <script>
+        	setprop("/autopilot/settings/target-speed-kt", 250);
+            setprop("/autopilot/locks/speed", "speed-with-throttle");
+            setprop("/autopilot/locks/altitude", "vertical-speed-hold");
+			setprop("/autopilot/settings/vertical-speed-fpm", 1000);
+            setprop("/autopilot/settings/heading-bug-deg",  getprop("/orientation/heading-magnetic-deg"));
+			setprop("/autopilot/settings/true-heading-deg", getprop("/orientation/heading-deg"));    			
+			setprop("/autopilot/locks/heading", "dg-heading-hold");
+            setprop("/afcs/flight-mode", "Climb out");
+        </script>
+   </binding>
+</key>
+<key n="361"><name>PageDown</name>                                   <desc>Approach</desc>
+   <binding><command>nasal</command>
+        <script>
+            setprop("/autopilot/settings/target-speed-kt", 220);
+            setprop("/autopilot/locks/speed", "speed-with-throttle");
+            setprop("/autopilot/locks/altitude", "");
+            setprop("/autopilot/locks/heading", "");
+            setprop("/controls/nose-visor/pos-norm", 0.66);
+            setprop("/afcs/flight-mode", "Approach");
+        </script>
+   </binding>
+</key>
+<key n="362"><name>Home</name>                                       <desc>Take Off</desc>
+  <binding><command>nasal</command>
+        <script>
+            setprop("/controls/engines/engine[0]/reverser", 0); # just in case
+            setprop("/autopilot/settings/target-speed-kt", 200);
+            setprop("/autopilot/locks/speed", "speed-with-throttle");
+            setprop("/autopilot/locks/altitude", "");
+            setprop("/autopilot/locks/heading", "");
+            setprop("/controls/nose-visor/pos-norm", 0.33);
+            setprop("/controls/gear/brake-parking", 0);
+            setprop("/afcs/flight-mode", "Take off");
+        </script>
+     </binding>
+ </key>
+<key n="363"><name>End</name>                                         <desc>Landing</desc>
+  <binding><command>nasal</command>
+  <script>
+			setprop("/autopilot/settings/target-speed-kt", 190);
+			setprop("/autopilot/locks/speed", "speed-with-throttle");
+			setprop("/autopilot/locks/altitude", "");
+			setprop("/autopilot/locks/altitude", "");
+            setprop("/autopilot/locks/heading", "");
+			setprop("/autopilot/locks/heading", "");
+			setprop("/controls/nose-visor/pos-norm", 1);
+			setprop("/controls/gear/gear-down", 1);
+            setprop("/afcs/flight-mode", "Landing");
+            setprop("/sim/current-view/field-of-view", 73.5); # Zoom in 
+  </script>
+  </binding>
+</key>
+
+
+</PropertyList>
+
+
